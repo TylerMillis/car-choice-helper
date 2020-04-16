@@ -2,7 +2,7 @@ const Data = {};
 Data.field_headers = {
   "Model": "Car name",
   "Displ": "???",
-  "Cyl": "The number of cylinders in the car",
+  "Cyl": "The number of cylinders in the car. The value is `null` if the car doesn't have cylinders (electric and hydrogen cars don't for instance)",
   "Trans": "???",
   "Drive": "Whether 4-wheel-drive (4WD) or 2-wheel-drive (2WD)",
   "Fuel": "type of fuel. Some cars have two types",
