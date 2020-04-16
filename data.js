@@ -1,3 +1,5 @@
+// Data.data is a small sample coming from:
+// https://www.fueleconomy.gov/feg/download.shtml
 const Data = {};
 Data.field_headers = {
   "Model": "Car name",
