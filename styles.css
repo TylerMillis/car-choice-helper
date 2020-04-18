@@ -7,8 +7,15 @@ body {
   margin: 0;
 }
 
+.CSS-title {
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .CSS-section {
   display: block;
+  width: 60%;
   margin: 1rem auto;
   padding: 1rem;
   text-align: center;
@@ -20,12 +27,21 @@ body {
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .CSS-section input {
   font-size: inherit;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 1px solid #999;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.CSS-section select {
+  font-size: inherit;
+  /* background-color: rgba(255, 255, 255, 0.1);
+  border: none; */
 }
 
 .CSS-section input[id=highwayPercentage] {
@@ -34,5 +50,10 @@ body {
 
 .CSS-section input[id=minPrice], .CSS-section input[id=maxPrice] {
   width: 7rem;
+}
+
+#CSS-result-separator {
+  display: block;
+  margin: 5rem auto;
 }
 
