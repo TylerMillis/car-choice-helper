@@ -1,0 +1,38 @@
+* {
+  font-family: 'Cabin', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.CSS-section {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: #BBB;
+  font-size: 1.25rem;
+}
+
+.CSS-section-title {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.CSS-section input {
+  font-size: inherit;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.CSS-section input[id=highwayPercentage] {
+  width: 4rem;
+}
+
+.CSS-section input[id=minPrice], .CSS-section input[id=maxPrice] {
+  width: 7rem;
+}
+
