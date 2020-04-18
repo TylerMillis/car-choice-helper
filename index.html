@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Choice Helper</title>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="selection.js"></script>
+</head>
+<body onload="getResults()">
+<p>I spend about
+    <input type="number" id="highwayPercentage" name="highwayPercentage" min="0" max="100" value="50" onchange="updateHighwayPercentage(this.value)">
+    % of my time driving on the highway versus driving in the city.
+    I
+    <select id="environment" onchange="updateEnvironmentCare(this.value)">
+        <option value="1">do not care</option>
+        <option value="4">somewhat care</option>
+        <option value="7">care</option>
+    </select>
+     about my car's effect on the environment.
+    I am looking for a
+    <select id="cars" onchange="updateCarType(this.value)">
+        <option value="small car">small car</option>
+        <option value="midsize car">midsize car</option>
+        <option value="large car">large car</option>
+        <option value="small SUV">small SUV</option>
+        <option value="standard SUV">standard SUV</option>
+        <option value="minivan">minivan</option>
+        <option value="pickup">pickup</option>
+        <option value="station wagon">station wagon</option>
+    </select>
+    and I prefer to have
+    <select id="WD" onchange="updateWheelDrive(this.value)">
+        <option value="either">2 or 4</option>
+        <option value="2WD">2</option>
+        <option value="4WD">4</option>
+    </select> wheel-drive.
+    I am looking to spend between $
+    <input type="number" id="minPrice" name="minPrice" min="0" value="0" onchange="updateMin(this.value)">
+    and $
+    <input type="number" id="maxPrice" name="maxPrice" min="0" value="100000" onchange="updateMax(this.value)">
+    .</p>
+
+<ol id="topVehicles">
+
+</ol>
+
+</body>
+</html>

@@ -605,13 +605,13 @@ Data.data = [
     "Veh Class": "small car",
     "Air Pollution Score": 10,
     "City MPG": "124",
-    "Fuel City MPG": "
+    "Fuel City MPG": "",
     "Electric City MPG": 124,
     "Hwy MPG": "102",
-    "Fuel Hwy MPG": "
+    "Fuel Hwy MPG": "",
     "Electric Hwy MPG": 102,
     "Cmb MPG": "113",
-    "Fuel Cmb MPG": "
+    "Fuel Cmb MPG": "",
     "Electric Cmb MPG": 113,
     "Greenhouse Gas Score": 10,
     "SmartWay": "Elite",
@@ -2061,13 +2061,13 @@ Data.data = [
     "Veh Class": "small SUV",
     "Air Pollution Score": 10,
     "City MPG": "80",
-    "Fuel City MPG": "
+    "Fuel City MPG": "",
     "Electric City MPG": 80,
     "Hwy MPG": "72",
-    "Fuel Hwy MPG": "
+    "Fuel Hwy MPG": "",
     "Electric Hwy MPG": 72,
     "Cmb MPG": "76",
-    "Fuel Cmb MPG": "
+    "Fuel Cmb MPG": "",
     "Electric Cmb MPG": 76,
     "Greenhouse Gas Score": 10,
     "SmartWay": "Elite",
@@ -3212,8 +3212,8 @@ Data.data = [
     "Fuel City MPG": 19,
     "Electric City MPG": 46,
     "Hwy MPG": "22/51",
-    "Fuel Hwy MPG": "
-    "Electric Hwy MPG": "
+    "Fuel Hwy MPG": "",
+    "Electric Hwy MPG": "",
     "Cmb MPG": "20/48",
     "Fuel Cmb MPG": 20,
     "Electric Cmb MPG": 48,
@@ -3237,14 +3237,14 @@ Data.data = [
     "Veh Class": "large car",
     "Air Pollution Score": 10,
     "City MPG": "68",
-    "Fuel City MPG": "
+    "Fuel City MPG": "",
     "Electric City MPG": 68,
     "Hwy MPG": "71",
-    "Fuel Hwy MPG": "
+    "Fuel Hwy MPG": "",
     "Electric Hwy MPG": 71,
     "Cmb MPG": "69",
     "Fuel Cmb MPG": 69,
-    "Electric Cmb MPG": "
+    "Electric Cmb MPG": "",
     "Greenhouse Gas Score": 10,
     "SmartWay": "Elite",
     "Comb CO2": 0,
