@@ -55,8 +55,13 @@ function getResults(){
         return 0;
     });
 
+    function makeCarPrice(price) {
+      return ` - <span class="CSS-car-price">$${price}</span>`;
+    }
+
     //We can change this based on what we want to show
-    let topResults = filteredResults.slice(0,10).map(car => car["Model"] + " - " + car["mpg"] + "MPG");
+    let topResults = filteredResults.slice(0,10)
+                                    .map(car => car["Model"] + " - " + car["mpg"] + "MPG" + makeCarPrice(car["price"]));
 
     document.getElementById("topVehicles").innerHTML = "<li>" + topResults.join("</li><li>") + "</li>";
     console.log(filteredResults);

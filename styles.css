@@ -73,6 +73,11 @@ ul, ol {
   color: white;
 }
 
+.CSS-car-price {
+  font-weight: 700;
+  color: rgba(45, 55, 200, 1);
+}
+
 #graph-section {
   background-color: rgba(245, 200, 210, 0.4);
 }
