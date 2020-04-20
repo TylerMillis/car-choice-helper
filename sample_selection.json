@@ -1,0 +1,51 @@
+[
+  {
+    "RANK": "1",
+    "Model": "TESLA Model 3 Standard Range",
+    "Air Pollution Score": "10",
+    "Greenhouse Gas Score": "10",
+    "Price": "39990"
+  },
+  {
+    "RANK": "2",
+    "Model": "HONDA Clarity",
+    "Air Pollution Score": "8",
+    "Greenhouse Gas Score": "10",
+    "Price": "33400"
+  },
+  {
+    "RANK": "3",
+    "Model": "TOYOTA Prius",
+    "Air Pollution Score": "7",
+    "Greenhouse Gas Score": "10",
+    "Price": "24325"
+  },
+  {
+    "RANK": "4",
+    "Model": "LINCOLN MKZ Hybrid",
+    "Air Pollution Score": "7",
+    "Greenhouse Gas Score": "9",
+    "Price": "42500"
+  },
+  {
+    "RANK": "5",
+    "Model": "HYUNDAI Elantra",
+    "Air Pollution Score": "7",
+    "Greenhouse Gas Score": "8",
+    "Price": "19150"
+  },
+  {
+    "RANK": "6",
+    "Model": "TOYOTA Camry LE/SE",
+    "Air Pollution Score": "7",
+    "Greenhouse Gas Score": "7",
+    "Price": "26040"
+  },
+  {
+    "RANK": "7",
+    "Model": "CHEVROLET Malibu",
+    "Air Pollution Score": "7",
+    "Greenhouse Gas Score": "7",
+    "Price": "21977"
+  }
+]

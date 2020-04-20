@@ -9,7 +9,15 @@
     <script type="text/javascript" src="selection.js"></script>
 </head>
 <body onload="getResults()">
-<div class="CSS-title">TITLE: TBD</div>
+<div class="CSS-title">Datastorytelling Car Selection Tool</div>
+</br>
+<div class="CSS-section-subtitle">By Tyler, Fernanda, Robert</div>
+</br>
+<div class="CSS-section">
+  In the following section, give us your preferences, and we will tell you
+  what car is best for you.
+</div>
+</br>
 <div class="CSS-section">
     <h1 class="CSS-section-title">Highway vs. City</h1>
     <p>
@@ -85,6 +93,60 @@
 <div class="CSS-section">
     <ol id="topVehicles">
     </ol>
+</div>
+
+<div class="CSS-section" id="graph-section">
+    <h1 class="CSS-section-title">Graphs</h1>
+    <h2 class="CSS-section-subtitle">Pollution to Price Comparison<h2>
+    <img src="IMG-pollution-to-price-comparison.png" />
+    <h2 class="CSS-section-subtitle">Average Number of Cylinders to Air Pollution Score<h2>
+    <img src="IMG-average-cylinders-to-air-pollution-score.png" />
+    <h2 class="CSS-section-subtitle">Average Number of Cylinders to Green House Gas Score<h2>
+    <img src="IMG-average-cylinders-to-ghg-score.png" />
+</div>
+
+<div class="CSS-section" id="sample-section">
+  <h1 class="CSS-section-tittle">Sample Selection</h1>
+  If you chose that that you
+  <ul>
+    <li class="CSS-sample-selection">
+      spent <span class="CSS-ss-emph">75%</span> of your driving on the highway,
+    </li>
+    <li class="CSS-sample-selection">
+      <span class="CSS-ss-emph">cared</span> about the effect of your car on the environment,
+    </li>
+    <li class="CSS-sample-selection">
+      were looking for a <span class="CSS-ss-emph">midsized</span> car,
+    </li>
+    <li class="CSS-sample-selection">
+      prefered to have a <span class="CSS-ss-emph">2-wheel-drive</span>,
+    </li>
+    <li class="CSS-sample-selection">
+      and were looking to spend between <span class="CSS-ss-emph">$0 and $45,000</span>,
+    </li>
+  </ul>
+  then, you would get the following list of cars (in order)
+  <ol>
+    <li>TESLA Model 3 Standard Range</li>
+    <li>HONDA Clarity</li>
+    <li>TOYOTA Prius Eco</li>
+    <li>LINCOLN MKZ Hybrid</li>
+    <li>HYUNDAI Elantra</li>
+    <li>TOYOTA Camry LE/SE</li>
+    <li>CHEVROLET Malibu</li>
+  </ol>
+  and the graph that we would display is the following:
+  </br>
+  </br>
+  <div id="graph-with-sample-selection">
+    <img
+      id="IMG-graph-with-sample-selection"
+      src="IMG-graph-with-sample-selection.png"
+      alt="Graph with the above car selection" />
+  </div>
+</div>
+
+<div>
 </div>
 
 </body>
