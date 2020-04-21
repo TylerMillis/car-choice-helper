@@ -63,7 +63,23 @@ function getResults(){
     let topResults = filteredResults.slice(0,10)
                                     .map(car => car["Model"] + " - " + car["mpg"] + "MPG" + makeCarPrice(car["price"]));
 
-    document.getElementById("topVehicles").innerHTML = "<li>" + topResults.join("</li><li>") + "</li>";
+    let resultingString = "";
+    let maxVal = 0;
+    let minVal = 1000;
+    for(let i = 0; i < filteredResults.length; i++){
+        let mpg = filteredResults[i]["mpg"];
+        if(mpg > maxVal){
+            maxVal = mpg;
+        }
+        if(mpg < minVal){
+            minVal = mpg;
+        }
+    }
+    for(let i = 0; i < topResults.length; i++){
+        resultingString += "<div class='carResult' style='height: " + maxVal * 4 + "px'><span class='carInfo' style='top: " + (maxVal -filteredResults[i]["mpg"]) * 4 + "px'>" + topResults[i] + "</span></div>";
+    }
+
+    document.getElementById("topVehicles").innerHTML = resultingString;//"<li>" + topResults.join("</li><li>") + "</div>";
     console.log(filteredResults);
 }
 

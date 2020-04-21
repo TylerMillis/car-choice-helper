@@ -7,6 +7,15 @@ body {
   margin: 0;
 }
 
+.carResult{
+  display: inline-block;
+  width: 10%;
+}
+
+.carInfo{
+  position: relative;
+}
+
 .CSS-title {
   margin-top: 1rem;
   font-size: 2rem;
@@ -16,6 +25,16 @@ body {
 .CSS-section {
   display: block;
   width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  border-bottom: 1px solid black;
+}
+
+.CSS-section-result {
+  display: block;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
