@@ -1,0 +1,128 @@
+[
+  {
+    "air-pollution-score": "1",
+    "price-percentile": "75",
+    "avg-price": "274669",
+    "price-value": "102957.5"
+  },
+  {
+    "air-pollution-score": "3",
+    "price-percentile": "75",
+    "avg-price": "84375.224489796",
+    "price-value": "86480"
+  },
+  {
+    "air-pollution-score": "5",
+    "price-percentile": "75",
+    "avg-price": "34754.1",
+    "price-value": "39575"
+  },
+  {
+    "air-pollution-score": "6",
+    "price-percentile": "75",
+    "avg-price": "31287.733333333",
+    "price-value": "34540"
+  },
+  {
+    "air-pollution-score": "7",
+    "price-percentile": "75",
+    "avg-price": "33838.666666667",
+    "price-value": "41936.25"
+  },
+  {
+    "air-pollution-score": "8",
+    "price-percentile": "75",
+    "avg-price": "33400",
+    "price-value": "33400"
+  },
+  {
+    "air-pollution-score": "10",
+    "price-percentile": "75",
+    "avg-price": "73195.625",
+    "price-value": "89990"
+  },
+  {
+    "air-pollution-score": "1",
+    "price-percentile": "50",
+    "avg-price": "274669",
+    "price-value": "60245"
+  },
+  {
+    "air-pollution-score": "3",
+    "price-percentile": "50",
+    "avg-price": "84375.224489796",
+    "price-value": "46450"
+  },
+  {
+    "air-pollution-score": "5",
+    "price-percentile": "50",
+    "avg-price": "34754.1",
+    "price-value": "30132.5"
+  },
+  {
+    "air-pollution-score": "6",
+    "price-percentile": "50",
+    "avg-price": "31287.733333333",
+    "price-value": "25050"
+  },
+  {
+    "air-pollution-score": "7",
+    "price-percentile": "50",
+    "avg-price": "33838.666666667",
+    "price-value": "28296.5"
+  },
+  {
+    "air-pollution-score": "8",
+    "price-percentile": "50",
+    "avg-price": "33400",
+    "price-value": "33400"
+  },
+  {
+    "air-pollution-score": "10",
+    "price-percentile": "50",
+    "avg-price": "73195.625",
+    "price-value": "64175"
+  },
+  {
+    "air-pollution-score": "1",
+    "price-percentile": "25",
+    "avg-price": "274669",
+    "price-value": "28217.75"
+  },
+  {
+    "air-pollution-score": "3",
+    "price-percentile": "25",
+    "avg-price": "84375.224489796",
+    "price-value": "31995"
+  },
+  {
+    "air-pollution-score": "5",
+    "price-percentile": "25",
+    "avg-price": "34754.1",
+    "price-value": "23290"
+  },
+  {
+    "air-pollution-score": "6",
+    "price-percentile": "25",
+    "avg-price": "31287.733333333",
+    "price-value": "24250"
+  },
+  {
+    "air-pollution-score": "7",
+    "price-percentile": "25",
+    "avg-price": "33838.666666667",
+    "price-value": "23480"
+  },
+  {
+    "air-pollution-score": "8",
+    "price-percentile": "25",
+    "avg-price": "33400",
+    "price-value": "33400"
+  },
+  {
+    "air-pollution-score": "10",
+    "price-percentile": "25",
+    "avg-price": "73195.625",
+    "price-value": "43335"
+  }
+]

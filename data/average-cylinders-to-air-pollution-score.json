@@ -1,0 +1,32 @@
+[
+  {
+    "air-pollution-score": "1",
+    "average-number-of-cylinders": "6.666666667",
+    "50th-percentile-of-price": "51000"
+  },
+  {
+    "air-pollution-score": "3",
+    "average-number-of-cylinders": "6.224489796",
+    "50th-percentile-of-price": "46450"
+  },
+  {
+    "air-pollution-score": "5",
+    "average-number-of-cylinders": "4.9",
+    "50th-percentile-of-price": "30132.5"
+  },
+  {
+    "air-pollution-score": "6",
+    "average-number-of-cylinders": "4.266666667",
+    "50th-percentile-of-price": "25050"
+  },
+  {
+    "air-pollution-score": "7",
+    "average-number-of-cylinders": "4.4",
+    "50th-percentile-of-price": "28296.5"
+  },
+  {
+    "air-pollution-score": "8",
+    "average-number-of-cylinders": "4",
+    "50th-percentile-of-price": "33400"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "greenhouse-gas-score": "1",
+    "price-percentile": "75",
+    "avg-price": "498311.888888889",
+    "price-value": "311900"
+  },
+  {
+    "greenhouse-gas-score": "2",
+    "price-percentile": "75",
+    "avg-price": "121941.636363636",
+    "price-value": "185462.5"
+  },
+  {
+    "greenhouse-gas-score": "3",
+    "price-percentile": "75",
+    "avg-price": "81372.636363636",
+    "price-value": "84830.5"
+  },
+  {
+    "greenhouse-gas-score": "4",
+    "price-percentile": "75",
+    "avg-price": "49618.074074074",
+    "price-value": "63750"
+  },
+  {
+    "greenhouse-gas-score": "5",
+    "price-percentile": "75",
+    "avg-price": "36858.948717949",
+    "price-value": "41215"
+  },
+  {
+    "greenhouse-gas-score": "6",
+    "price-percentile": "75",
+    "avg-price": "26655.411764706",
+    "price-value": "35103"
+  },
+  {
+    "greenhouse-gas-score": "7",
+    "price-percentile": "75",
+    "avg-price": "36572.461538462",
+    "price-value": "26040"
+  },
+  {
+    "greenhouse-gas-score": "8",
+    "price-percentile": "75",
+    "avg-price": "23079",
+    "price-value": "21750"
+  },
+  {
+    "greenhouse-gas-score": "9",
+    "price-percentile": "75",
+    "avg-price": "75139.666666667",
+    "price-value": "91459.5"
+  },
+  {
+    "greenhouse-gas-score": "10",
+    "price-percentile": "75",
+    "avg-price": "64807.5",
+    "price-value": "81205"
+  },
+  {
+    "greenhouse-gas-score": "1",
+    "price-percentile": "50",
+    "avg-price": "498311.888888889",
+    "price-value": "207326"
+  },
+  {
+    "greenhouse-gas-score": "2",
+    "price-percentile": "50",
+    "avg-price": "121941.636363636",
+    "price-value": "80400"
+  },
+  {
+    "greenhouse-gas-score": "3",
+    "price-percentile": "50",
+    "avg-price": "81372.636363636",
+    "price-value": "52300"
+  },
+  {
+    "greenhouse-gas-score": "4",
+    "price-percentile": "50",
+    "avg-price": "49618.074074074",
+    "price-value": "33800"
+  },
+  {
+    "greenhouse-gas-score": "5",
+    "price-percentile": "50",
+    "avg-price": "36858.948717949",
+    "price-value": "34600"
+  },
+  {
+    "greenhouse-gas-score": "6",
+    "price-percentile": "50",
+    "avg-price": "26655.411764706",
+    "price-value": "23390"
+  },
+  {
+    "greenhouse-gas-score": "7",
+    "price-percentile": "50",
+    "avg-price": "36572.461538462",
+    "price-value": "23600"
+  },
+  {
+    "greenhouse-gas-score": "8",
+    "price-percentile": "50",
+    "avg-price": "23079",
+    "price-value": "19150"
+  },
+  {
+    "greenhouse-gas-score": "9",
+    "price-percentile": "50",
+    "avg-price": "75139.666666667",
+    "price-value": "73169"
+  },
+  {
+    "greenhouse-gas-score": "10",
+    "price-percentile": "50",
+    "avg-price": "64807.5",
+    "price-value": "42347.5"
+  },
+  {
+    "greenhouse-gas-score": "1",
+    "price-percentile": "25",
+    "avg-price": "498311.888888889",
+    "price-value": "86480"
+  },
+  {
+    "greenhouse-gas-score": "2",
+    "price-percentile": "25",
+    "avg-price": "121941.636363636",
+    "price-value": "53227.5"
+  },
+  {
+    "greenhouse-gas-score": "3",
+    "price-percentile": "25",
+    "avg-price": "81372.636363636",
+    "price-value": "28029"
+  },
+  {
+    "greenhouse-gas-score": "4",
+    "price-percentile": "25",
+    "avg-price": "49618.074074074",
+    "price-value": "30980"
+  },
+  {
+    "greenhouse-gas-score": "5",
+    "price-percentile": "25",
+    "avg-price": "36858.948717949",
+    "price-value": "25510"
+  },
+  {
+    "greenhouse-gas-score": "6",
+    "price-percentile": "25",
+    "avg-price": "26655.411764706",
+    "price-value": "22470"
+  },
+  {
+    "greenhouse-gas-score": "7",
+    "price-percentile": "25",
+    "avg-price": "36572.461538462",
+    "price-value": "21977"
+  },
+  {
+    "greenhouse-gas-score": "8",
+    "price-percentile": "25",
+    "avg-price": "23079",
+    "price-value": "15850"
+  },
+  {
+    "greenhouse-gas-score": "9",
+    "price-percentile": "25",
+    "avg-price": "75139.666666667",
+    "price-value": "57834.5"
+  },
+  {
+    "greenhouse-gas-score": "10",
+    "price-percentile": "25",
+    "avg-price": "64807.5",
+    "price-value": "33836.25"
+  }
+]

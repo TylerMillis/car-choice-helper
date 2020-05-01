@@ -1,0 +1,52 @@
+[
+  {
+    "greenhouse-gas-score": "1",
+    "average-number-of-cylinders": "9.5",
+    "50th-percentile-of-price": "147860.5"
+  },
+  {
+    "greenhouse-gas-score": "2",
+    "average-number-of-cylinders": "8.181818182",
+    "50th-percentile-of-price": "80400"
+  },
+  {
+    "greenhouse-gas-score": "3",
+    "average-number-of-cylinders": "6.545454545",
+    "50th-percentile-of-price": "52300"
+  },
+  {
+    "greenhouse-gas-score": "4",
+    "average-number-of-cylinders": "5.777777778",
+    "50th-percentile-of-price": "33800"
+  },
+  {
+    "greenhouse-gas-score": "5",
+    "average-number-of-cylinders": "4.461538462",
+    "50th-percentile-of-price": "34600"
+  },
+  {
+    "greenhouse-gas-score": "6",
+    "average-number-of-cylinders": "4.058823529",
+    "50th-percentile-of-price": "23390"
+  },
+  {
+    "greenhouse-gas-score": "7",
+    "average-number-of-cylinders": "4.230769231",
+    "50th-percentile-of-price": "23600"
+  },
+  {
+    "greenhouse-gas-score": "8",
+    "average-number-of-cylinders": "3.8",
+    "50th-percentile-of-price": "19150"
+  },
+  {
+    "greenhouse-gas-score": "9",
+    "average-number-of-cylinders": "5.333333333",
+    "50th-percentile-of-price": "73169"
+  },
+  {
+    "greenhouse-gas-score": "10",
+    "average-number-of-cylinders": "4.166666667",
+    "50th-percentile-of-price": "42347.5"
+  }
+]
