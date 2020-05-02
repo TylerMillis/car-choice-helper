@@ -1,4 +1,6 @@
-air_pollution_to_avg_price = [
+const ChartData = {};
+
+ChartData.air_pollution_to_avg_price = [
   {
     "air-pollution-score": "1",
     "price": "274669"
@@ -28,7 +30,7 @@ air_pollution_to_avg_price = [
     "price": "73195.625"
   }
 ];
-air_pollution_to_price_25 = [
+ChartData.air_pollution_to_price_25 = [
   {
     "air-pollution-score": "1",
     "price": "28217.75"
@@ -58,7 +60,7 @@ air_pollution_to_price_25 = [
     "price": "43335"
   }
 ];
-air_pollution_to_price_50 = [
+ChartData.air_pollution_to_price_50 = [
   {
     "air-pollution-score": "1",
     "price": "60245"
@@ -88,7 +90,7 @@ air_pollution_to_price_50 = [
     "price": "64175"
   }
 ];
-air_pollution_to_price_75 = [
+ChartData.air_pollution_to_price_75 = [
   {
     "air-pollution-score": "1",
     "price": "102957.5"
@@ -118,7 +120,7 @@ air_pollution_to_price_75 = [
     "price": "89990"
   }
 ];
-air_pollution_to_price_overall = [
+ChartData.air_pollution_to_price_overall = [
   {
     "air-pollution-score": "1",
     "price-percentile": "75",
@@ -246,7 +248,7 @@ air_pollution_to_price_overall = [
     "price-value": "43335"
   }
 ];
-average_cylinders_to_air_pollution_score = [
+ChartData.average_cylinders_to_air_pollution_score = [
   {
     "air-pollution-score": "1",
     "average-number-of-cylinders": "6.666666667",
@@ -278,7 +280,7 @@ average_cylinders_to_air_pollution_score = [
     "50th-percentile-of-price": "33400"
   }
 ];
-average_cylinders_to_ghg_score = [
+ChartData.average_cylinders_to_ghg_score = [
   {
     "greenhouse-gas-score": "1",
     "average-number-of-cylinders": "9.5",
@@ -330,7 +332,7 @@ average_cylinders_to_ghg_score = [
     "50th-percentile-of-price": "42347.5"
   }
 ];
-ghg_pollution_to_avg_price = [
+ChartData.ghg_pollution_to_avg_price = [
   {
     "1": "2",
     "498311.888888889": "121941.636363636"
@@ -368,7 +370,7 @@ ghg_pollution_to_avg_price = [
     "498311.888888889": "64807.5"
   }
 ];
-ghg_pollution_to_price_25 = [
+ChartData.ghg_pollution_to_price_25 = [
   {
     "greenhouse-gas-score": "1",
     "price": "86480"
@@ -410,7 +412,7 @@ ghg_pollution_to_price_25 = [
     "price": "33836.25"
   }
 ];
-ghg_pollution_to_price_50 = [
+ChartData.ghg_pollution_to_price_50 = [
   {
     "greenhouse-gas-score": "1",
     "price": "207326"
@@ -452,7 +454,7 @@ ghg_pollution_to_price_50 = [
     "price": "42347.5"
   }
 ];
-ghg_pollution_to_price_75 = [
+ChartData.ghg_pollution_to_price_75 = [
   {
     "greenhouse-gas-score": "1",
     "price": "311900"
@@ -494,7 +496,7 @@ ghg_pollution_to_price_75 = [
     "price": "81205"
   }
 ];
-ghg_pollution_to_price_overall = [
+ChartData.ghg_pollution_to_price_overall = [
   {
     "greenhouse-gas-score": "1",
     "price-percentile": "75",
@@ -676,54 +678,54 @@ ghg_pollution_to_price_overall = [
     "price-value": "33836.25"
   }
 ];
-sample_selection = [
+ChartData.sample_selection = [
   {
-    "RANK": "1",
-    "Model": "TESLA Model 3 Standard Range",
-    "Air Pollution Score": "10",
-    "Greenhouse Gas Score": "10",
-    "Price": "39990"
+    "rank": "1",
+    "model": "TESLA Model 3 Standard Range",
+    "air-pollution-score": "10",
+    "ghg-score": "10",
+    "price": "39990"
   },
   {
-    "RANK": "2",
-    "Model": "HONDA Clarity",
-    "Air Pollution Score": "8",
-    "Greenhouse Gas Score": "10",
-    "Price": "33400"
+    "rank": "2",
+    "model": "HONDA Clarity",
+    "air-pollution-score": "8",
+    "ghg-score": "10",
+    "price": "33400"
   },
   {
-    "RANK": "3",
-    "Model": "TOYOTA Prius",
-    "Air Pollution Score": "7",
-    "Greenhouse Gas Score": "10",
-    "Price": "24325"
+    "rank": "3",
+    "model": "TOYOTA Prius",
+    "air-pollution-score": "7",
+    "ghg-score": "10",
+    "price": "24325"
   },
   {
-    "RANK": "4",
-    "Model": "LINCOLN MKZ Hybrid",
-    "Air Pollution Score": "7",
-    "Greenhouse Gas Score": "9",
-    "Price": "42500"
+    "rank": "4",
+    "model": "LINCOLN MKZ Hybrid",
+    "air-pollution-score": "7",
+    "ghg-score": "9",
+    "price": "42500"
   },
   {
-    "RANK": "5",
-    "Model": "HYUNDAI Elantra",
-    "Air Pollution Score": "7",
-    "Greenhouse Gas Score": "8",
-    "Price": "19150"
+    "rank": "5",
+    "model": "HYUNDAI Elantra",
+    "air-pollution-score": "7",
+    "ghg-score": "8",
+    "price": "19150"
   },
   {
-    "RANK": "6",
-    "Model": "TOYOTA Camry LE/SE",
-    "Air Pollution Score": "7",
-    "Greenhouse Gas Score": "7",
-    "Price": "26040"
+    "rank": "6",
+    "model": "TOYOTA Camry LE/SE",
+    "air-pollution-score": "7",
+    "ghg-score": "7",
+    "price": "26040"
   },
   {
-    "RANK": "7",
-    "Model": "CHEVROLET Malibu",
-    "Air Pollution Score": "7",
-    "Greenhouse Gas Score": "7",
-    "Price": "21977"
+    "rank": "7",
+    "model": "CHEVROLET Malibu",
+    "air-pollution-score": "7",
+    "ghg-score": "7",
+    "price": "21977"
   }
 ];

@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="chart_data.js"></script>
+    <script type="text/javascript" src="graphing.js"></script>
     <script type="text/javascript" src="selection.js"></script>
 </head>
 <body onload="getResults()">
@@ -126,15 +128,15 @@
     </li>
   </ul>
   then, you would get the following list of cars (in order)
-  <ol>
-    <li>TESLA Model 3 Standard Range</li>
-    <li>HONDA Clarity</li>
-    <li>TOYOTA Prius Eco</li>
-    <li>LINCOLN MKZ Hybrid</li>
-    <li>HYUNDAI Elantra</li>
-    <li>TOYOTA Camry LE/SE</li>
-    <li>CHEVROLET Malibu</li>
-  </ol>
+  <ol id="sample-selection-list"></ol>
+  <!-- Using this d3.js script to put stuffs inside the sample selection list -->
+  <script>
+    const ol = d3.select("ol#sample-selection-list")
+    ol.selectAll("li")
+      .data(ChartData.sample_selection)
+      .join('li')
+      .text(d => `${d.model}`);
+  </script>
   and the graph that we would display is the following:
   </br>
   </br>
