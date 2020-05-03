@@ -1,58 +1,62 @@
-var carType = "small car";
-var percentHighway = 0.5;
-var environmentLevel = 1;
-var WD = "either";
-var priceMin = 0;
-var priceMax = 100000;
+const Selection = {
+  carType: "small car",
+  percentHighway: 0.5,
+  environmentLevel: 1,
+  WD: "either",
+  priceMin: 0,
+  priceMax: 100000,
+}
 
 function updateCarType(type){
-    carType = type;
-    getResults();
+  Selection.carType = type;
+  getResults();
 }
 
 function updateWheelDrive(wd){
-    WD = wd;
-    getResults();
+  Selection.WD = wd;
+  getResults();
 }
 
 function updateMin(price){
-    priceMin = parseInt(price);
-    getResults();
+  Selection.priceMin = parseInt(price);
+  getResults();
 }
 
 function updateMax(price){
-    priceMax = parseInt(price);
-    getResults();
+  Selection.priceMax = parseInt(price);
+  getResults();
 }
 
 function updateEnvironmentCare(level){
-    environmentLevel = parseInt(level);
-    getResults();
+  Selection.environmentLevel = parseInt(level);
+  getResults();
 }
 
 function updateHighwayPercentage(newPercentage){
-    percentHighway = parseInt(newPercentage) / 100;
-    console.log(percentHighway);
-    getResults();
+  Selection.percentHighway = parseInt(newPercentage) / 100;
+  getResults();
 }
 
-function getResults(){
+function getResults() {
+    // filter the car type
+    let filteredResults = Data.data.filter(car => (
+      car["Veh Class"] === Selection.carType
+      && car["price"] >= Selection.priceMin
+      && car["price"] <= Selection.priceMax
+      && (car["Air Pollution Score"] + car["Greenhouse Gas Score"]) / 2 >= Selection.environmentLevel
+    ));
 
-    let filteredResults = Data.data.filter(car => car["Veh Class"] === carType &&
-    car["price"] >= priceMin &&
-        car["price"] <= priceMax &&
-        (car["Air Pollution Score"] + car["Greenhouse Gas Score"]) / 2 >= environmentLevel);
-
-    if(WD !== "either"){
-        filteredResults = filteredResults.filter(car => car["Drive"] == WD)
+    // filter the wheel drives
+    if (Selection.WD !== "either") {
+      filteredResults = filteredResults.filter(car => car["Drive"] === Selection.WD)
     }
 
-    //Get user's mpg and sort by it
+    // get user's mpg and sort by it
     filteredResults.map(car => car["mpg"] = calculateMPG(car));
     filteredResults.sort(function(a, b) {
-        if (a["mpg"] < b["mpg"]) return 1;
-        if (a["mpg"] > b["mpg"]) return -1;
-        return 0;
+      if (a["mpg"] < b["mpg"]) return 1;
+      if (a["mpg"] > b["mpg"]) return -1;
+      return 0;
     });
 
     function makeCarPrice(price) {
@@ -66,27 +70,42 @@ function getResults(){
     let resultingString = "";
     let maxVal = 0;
     let minVal = 1000;
-    for(let i = 0; i < filteredResults.length; i++){
-        let mpg = filteredResults[i]["mpg"];
-        if(mpg > maxVal){
-            maxVal = mpg;
-        }
-        if(mpg < minVal){
-            minVal = mpg;
-        }
+    for (let i = 0; i < filteredResults.length; i++){
+      let mpg = filteredResults[i]["mpg"];
+      if (mpg > maxVal){
+        maxVal = mpg;
+      }
+      if (mpg < minVal){
+        minVal = mpg;
+      }
     }
+    const sectionHeight = 4 * maxVal;
     for(let i = 0; i < topResults.length; i++){
-        resultingString += "<div class='carResult' style='height: " + maxVal * 4 + "px'><span class='carInfo' style='top: " + (maxVal -filteredResults[i]["mpg"]) * 4 + "px'>" + topResults[i] + "</span></div>";
+      const blockHeight = (maxVal - filteredResults[i]["mpg"]) * 4
+      resultingString += `<div class='carResult' style='height: ${sectionHeight}px'>
+        <span class='carInfo' style='top: ${blockHeight}px'>${topResults[i]}</span>
+      </div>`;
     }
-
-    document.getElementById("topVehicles").innerHTML = resultingString;//"<li>" + topResults.join("</li><li>") + "</div>";
+    document.getElementById("topVehicles").innerHTML = resultingString;
     console.log(filteredResults);
 }
 
 function calculateMPG(car){
-    if(car["Electric City MPG"]){
-        return parseInt(car["Electric City MPG"] * (1 - percentHighway) + car["Electric Hwy MPG"] * percentHighway);
-    } else {
-        return parseInt(car["Fuel City MPG"] * (1 - percentHighway) + car["Fuel Hwy MPG"] * percentHighway);
-    }
+  const pctCity = (1-Selection.percentHighway);
+  const pctHighway = Selection.percentHighway;
+  const carFuels = car["Fuel"].split("/").map(s => s.toLowerCase());
+
+  // We need to take into account cars that are both gasoline and electric
+  // So, we take the average of the two if applicable, and take just one if not.
+  let mpg = 0;
+  let count = 0;
+  if (carFuels.includes("electricity")) {
+    mpg += parseInt(car["Electric City MPG"]) * pctCity + parseInt(car["Electric Hwy MPG"]) * pctHighway;
+    count += 1;
+  }
+  if (carFuels.includes("gasoline")) {
+    mpg += parseInt(car["Fuel City MPG"]) * pctCity + parseInt(car["Fuel Hwy MPG"]) * pctHighway;
+    count += 1;
+  }
+  return mpg / count;
 }
