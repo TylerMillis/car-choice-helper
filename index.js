@@ -13,6 +13,8 @@ const Navigator = {
   },
 };
 
+const CYAN_T020 = "rgba(0, 255, 255, 0.2)";
+
 // Using this object to store the users' selection
 const Selection = {
   carType: "small car",
@@ -156,6 +158,7 @@ function collapseSection(sectionId) {
   const nextButton = section.children[2];
   nextButton.style.display = "none";
   section.style.minHeight = null;
+  section.style.backgroundColor = null;
 }
 
 /**
@@ -181,6 +184,7 @@ function expandSection(sectionId) {
   const titleHeight = allSections[0].offsetTop;
   const desiredHeight = window.innerHeight - (svHeight) - (titleHeight);
   section.style.minHeight = desiredHeight + "px";
+  section.style.backgroundColor = CYAN_T020;
 }
 
 
@@ -263,7 +267,9 @@ function getResults() {
     const blockHeight = (maxVal - filteredResults[i]["mpg"]) * 4;
     let url = "http://www.google.com/search?q=" + filteredResults[i]["Model"].replace(" ","+");
     resultingString += `<div class='carResult' style='height: ${sectionHeight}px'>
-      <span class='carInfo' style='top: ${blockHeight}px'><a target="_blank" href="${url}">${topResults[i]}</a></span>
+      <span class='carInfo' 
+      style='top: ${blockHeight}px'
+      onclick="window.open('${url}', '_blank')">${topResults[i]}</span>
     </div>`;
   }
   document.getElementById("topVehicles").innerHTML = resultingString;
@@ -295,7 +301,6 @@ function calculateMPG(car){
 }
 
 function displayQuickResults(results) {
-
   const container = d3.select("#side-results div")
   container.selectAll("span").remove();
 

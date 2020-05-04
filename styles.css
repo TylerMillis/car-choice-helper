@@ -94,7 +94,10 @@ body {
   display: inline-block;
 }
 
-.big-view { padding: 1rem; }
+.big-view {
+  /*background-color: rgba(0, 255, 255, 0.2);*/
+  padding: 1rem;
+}
 
 .next-section {
   bottom: 0;
@@ -173,6 +176,28 @@ body {
   padding: 1rem 0;
 }
 
+#side-results #copyright {
+  bottom: 0;
+  display: block;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 800;
+  margin: 1.5rem auto 1rem auto;
+  position: absolute;
+}
+
+
+/* Quick: car info */
+.carInfo {
+  cursor: pointer;
+}
+.carInfo:focus, .carInfo:hover {
+  color: var(--orange);
+
+}
+.carInfo:active {
+  color: var(--orange-dark);
+}
 /* OLD CSS STUFFS */
 
 .carResult{
