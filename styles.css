@@ -166,6 +166,13 @@ body {
   background-color: var(--orange);
 }
 
+#side-results .sr-no-result {
+  display: block;
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 1rem 0;
+}
+
 /* OLD CSS STUFFS */
 
 .carResult{

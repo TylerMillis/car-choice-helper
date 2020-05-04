@@ -295,7 +295,17 @@ function calculateMPG(car){
 }
 
 function displayQuickResults(results) {
+
   const container = d3.select("#side-results div")
+  container.selectAll("span").remove();
+
+  if (results.length === 0) {
+    const header = container.selectAll("span").data([1]).join("span");
+    header.attr("class", "sr-no-result");
+    header.text("No results :(");
+    return;
+  }
+
   function enterFxn(enter) {
     const carObject = enter.append("span");
     carObject.attr("class", "sr-result");
@@ -310,7 +320,6 @@ function displayQuickResults(results) {
 
     carObject.on("click", (d) => window.open(googleLink(d["Model"]), "_blank"))
   }
-  container.selectAll("span").remove();
   container.selectAll("span")
            .data(results)
            .join(
