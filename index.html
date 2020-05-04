@@ -144,13 +144,13 @@
 
     <!-- Results -->
     <div id="CSS-result-separator">
-        <h1 class="CSS-section-title">Results (sorted by MPG)</h1>
+      <span class="h1"><span>Best Results</span></span>
+      <span class="sh1"><span>Sorted by MPG</span></span>
     </div>
-
     <div class="CSS-section-result" id="topVehicles">
-
     </div>
 
+    <!-- Displaying Graphs -->
     <div class="section" id="graph-section">
       <span class="h2"><span>Graphs</span></span>
       <span class="h3"><span>Pollution to Price Comparison</span></span>
@@ -158,6 +158,7 @@
            alt="Graph showing the pollution to price comparison for cars" />
     </div>
 
+    <!-- Sample Selection with Graphs -->
     <div class="section" id="sample-section">
       <h1 class="CSS-section-tittle">Sample Index</h1>
       If you chose that that you
@@ -203,20 +204,11 @@
     <div id="copyright">By Tyler, Fernanda, Robert</div>
     </br>
   </div>
+
   <!-- SIDE RESULTS -->
   <div id="side-results">
-    <span class="h2"><span>Quick Results</span></span>
+    <span class="h1"><span>Quick Results</span></span>
     <div></div>
-    <script>
-      (function() {
-        const ol = d3.select("#side-results div")
-        ol.selectAll("span")
-          .data([1,2,3,4,5,6])
-          .join("span")
-          .append("div")
-          .text(d => `result ${d}`);
-      })();
-    </script>
   </div>
 </body>
 </html>
