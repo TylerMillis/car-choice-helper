@@ -1,11 +1,103 @@
 * {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+  transition: 150ms;
+}
+
+:root {
+  --orange: #FF810A;
+  --orange-dark: #B35700;
 }
 
 body {
   margin: 0;
 }
+
+#main-section, #side-results {
+  display: block;
+  margin: 0;
+}
+#main-section {
+  text-align: center;
+  position: absolute;
+  width: 78%;
+  overflow: scroll;
+  padding: 0.25rem 0;
+}
+#side-results {
+  background-color: var(--orange);
+  border-left: 1px solid white;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  width: 22%;
+  padding: 0.25rem 1rem;
+}
+
+.h1, .h2, .h3, .h4 {
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: 700;
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.h1 *, .h2 *, .h3 *, .h4 * { font-family: 'Anonymous Pro', monospace; }
+.h1 span, .h2 span, .h3 span, .h4 span {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  padding-bottom: 0.1rem;
+}
+.h1 { font-size: 1.7rem; }
+.h2 { font-size: 1.45rem; }
+.h3 { font-size: 1.25rem; }
+.h4 { font-size: 1.1rem; }
+.sh1 { font-size: 1.3rem; font-style: italic; color: #666666; }
+.sh2 { font-size: 1.2rem; font-style: italic; color: #666666; }
+.sh3 { font-size: 1.1rem; font-style: italic; color: #666666; }
+
+.section {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-size: 1.25rem;
+  border-bottom: 1px solid white;
+}
+
+.small-view, .big-view, .next-section {
+  padding: 1rem;
+}
+.small-view {
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: 800;
+}
+.section-small-view-solved {
+  background-color: blue;
+  color: white;
+}
+
+.next-section {
+  padding: 0.75rem;
+  text-align: center;
+}
+.next-section div {
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: 800;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: blue;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.next-section div:hover,
+.next-section div:focus {
+  background-color: #0000AA;
+}
+.next-section div:active {
+  background-color: var(--orange-dark);
+}
+
 
 .carResult{
   display: inline-block;
@@ -22,15 +114,6 @@ body {
   text-align: center;
 }
 
-.CSS-section {
-  display: block;
-  width: 80%;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.25rem;
-  border-bottom: 1px solid black;
-}
 
 .CSS-section-result {
   display: block;
@@ -58,7 +141,7 @@ body {
   font-weight: 600;
 }
 
-.CSS-section input {
+.section input {
   font-size: inherit;
   /* background-color: rgba(255, 255, 255, 0.1); */
   border: 1px solid #999;
@@ -66,17 +149,17 @@ body {
   text-align: center;
 }
 
-.CSS-section select {
+.section select {
   font-size: inherit;
   /* background-color: rgba(255, 255, 255, 0.1);
   border: none; */
 }
 
-.CSS-section input[id=highwayPercentage] {
+.section input[id=highwayPercentage] {
   width: 4rem;
 }
 
-.CSS-section input[id=minPrice], .CSS-section input[id=maxPrice] {
+.section input[id=minPrice], .section input[id=maxPrice] {
   width: 7rem;
 }
 
@@ -124,7 +207,7 @@ img {
 }
 
 /*
-#IMG-graph-with-sample-Selection {
+#IMG-graph-with-sample-Index {
   width: 100%;
 }
 */

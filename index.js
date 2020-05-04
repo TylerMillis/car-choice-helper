@@ -1,3 +1,19 @@
+// Using the following object to figure out which section is active
+const Navigator = {
+  previousActiveSection: -1,
+  activeSection: 0,
+  maxSolvableSection: 6,
+  solvedSections: {
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+  },
+};
+
+// Using this object to store the users' selection
 const Selection = {
   carType: "small car",
   percentHighway: 0.5,
@@ -7,6 +23,98 @@ const Selection = {
   priceMax: 100000,
 }
 
+// some setup stuffs
+function onLoaded() {
+  // collapse all the sections
+  Array.from(Array(Navigator.maxSolvableSection).keys()).forEach(v => collapseSection(v));
+  // update the view
+  updateView();
+  getResults();
+}
+window.addEventListener("load", onLoaded);
+
+function setNextSection() {
+  setActiveSection(Navigator.activeSection + 1);
+}
+
+function setActiveSection(sectionId) {
+  // set the current section as solved if we move up
+  if (Navigator.activeSection < sectionId) {
+    makeSolved(Navigator.activeSection);
+  }
+
+  // find the maximum solved section
+  const maxSolved = Object.keys(Navigator.solvedSections)
+                          .filter(k => Navigator.solvedSections[k])
+                          .map(k => parseInt(k))
+                          .reduce((a, b) => Math.max(a, b));
+
+  // we should be able to answer the next section, but not any above that
+  // this allows to go back to previous sections as well
+  const maxAllowed = Math.min(maxSolved + 1, Navigator.maxSolvableSection);
+  if (parseInt(sectionId) > maxAllowed) {
+    // TODO: signal to user that they can't do this.
+    return;
+  }
+
+  // update the sections, then update the views
+  Navigator.previousActiveSection = Navigator.activeSection;
+  Navigator.activeSection = parseInt(sectionId);
+  updateView();
+}
+
+function makeSolved(sectionId) {
+  if (!Navigator.solvedSections[sectionId]) {
+    const section = document.querySelectorAll(".section")[sectionId];
+    const smallView = section.children[0];
+    smallView.classList.add("section-small-view-solved");
+  }
+  Navigator.solvedSections[sectionId] = true;
+}
+
+function updateView() {
+  if (Navigator.previousActiveSection >= 0) {
+    collapseSection(Navigator.previousActiveSection);
+  }
+
+  if (Navigator.activeSection < Navigator.maxSolvableSection) {
+    expandSection(Navigator.activeSection);
+  }
+
+  // this is now we're displaying results
+  if (Navigator.activeSection === Navigator.maxSolvableSection) {
+    // TODO: do something if needed
+  }
+}
+
+/**
+ * get the small view and large view; then display and hide them accordingly
+ */
+function collapseSection(sectionId) {
+  const section = document.querySelectorAll(".section")[sectionId];
+  const smallView = section.children[0];
+  smallView.style.display = "block";
+  const largeView = section.children[1];
+  largeView.style.display = "none";
+  const nextButton = section.children[2];
+  nextButton.style.display = "none";
+}
+
+/**
+ * get the small view and large view; then hide and display them accordingly
+ */
+function expandSection(sectionId) {
+  const section = document.querySelectorAll(".section")[sectionId];
+  const smallView = section.children[0];
+  smallView.style.display = "none";
+  const largeView = section.children[1];
+  largeView.style.display = "block";
+  const nextButton = section.children[2];
+  nextButton.style.display = "block";
+}
+
+
+// Functions used for when things are updated in the app
 function updateCarType(type){
   Selection.carType = type;
   getResults();
