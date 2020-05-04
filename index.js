@@ -189,9 +189,11 @@ function getResults() {
     }
     const sectionHeight = 4 * maxVal;
     for(let i = 0; i < topResults.length; i++){
-      const blockHeight = (maxVal - filteredResults[i]["mpg"]) * 4
+      const blockHeight = (maxVal - filteredResults[i]["mpg"]) * 4;
+      let url = "http://www.google.com/search?q=" + filteredResults[i]["Model"].replace(" ","+");
+      console.log(url);
       resultingString += `<div class='carResult' style='height: ${sectionHeight}px'>
-        <span class='carInfo' style='top: ${blockHeight}px'>${topResults[i]}</span>
+        <span class='carInfo' style='top: ${blockHeight}px'><a target="_blank" href="${url}">${topResults[i]}</a></span>
       </div>`;
     }
     document.getElementById("topVehicles").innerHTML = resultingString;
