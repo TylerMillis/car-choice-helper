@@ -7,6 +7,7 @@
 :root {
   --orange: #FF810A;
   --orange-dark: #B35700;
+  --white-t010: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 
 .h1, .h2, .h3, .h4 {
   font-family: 'Anonymous Pro', monospace;
-  font-weight: 700;
+  font-weight: 800;
   display: block;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -55,38 +56,56 @@ body {
 .sh2 { font-size: 1.2rem; font-style: italic; color: #666666; }
 .sh3 { font-size: 1.1rem; font-style: italic; color: #666666; }
 
+.section-first { border-top: 1px solid black; }
 .section {
   display: block;
   margin: 0 auto;
   padding: 0;
+  position: relative;
   text-align: center;
   font-size: 1.25rem;
   border-bottom: 1px solid black;
 }
-
-.small-view, .big-view, .next-section {
-  padding: 1rem;
+.section select, .section input { font-size: inherit; }
+.section input[id=highwayPercentage] { width: 4rem; }
+.section input[id=minPrice], .section input[id=maxPrice] { width: 7rem; }
+.section input {
+  border: 1px solid #999;
+  border-radius: 3px;
+  text-align: center;
 }
+
 .small-view {
+  padding: 0.5rem;
   font-family: 'Anonymous Pro', monospace;
   font-weight: 800;
   cursor: pointer;
 }
-.small-view:hover, .small-view:focus {
-  background-color: #000099;
-}
-.small-view:active {
-  background-color: #000055;
-}
-
+.small-view:hover, .small-view:focus { background-color: #000099; }
+.small-view:active { background-color: #000055; }
 .section-small-view-solved {
   background-color: blue;
   color: white;
 }
+.small-view .sv-answer {
+  background-color: cyan;
+  padding: 0.1rem 0.75rem;
+  display: inline-block;
+}
+.section-small-view-solved .sv-answer {
+  background-color: var(--orange-dark);
+  padding: 0.1rem 0.75rem;
+  display: inline-block;
+}
+
+.big-view { padding: 1rem; }
 
 .next-section {
+  bottom: 0;
   padding: 0.75rem;
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
 .next-section div {
   font-family: 'Anonymous Pro', monospace;
@@ -98,13 +117,8 @@ body {
   border-radius: 2px;
   cursor: pointer;
 }
-.next-section div:hover,
-.next-section div:focus {
-  background-color: #0000AA;
-}
-.next-section div:active {
-  background-color: var(--orange-dark);
-}
+.next-section div:hover, .next-section div:focus { background-color: #0000AA; }
+.next-section div:active { background-color: var(--orange-dark); }
 
 
 .carResult{
@@ -149,27 +163,7 @@ body {
   font-weight: 600;
 }
 
-.section input {
-  font-size: inherit;
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  border: 1px solid #999;
-  border-radius: 3px;
-  text-align: center;
-}
 
-.section select {
-  font-size: inherit;
-  /* background-color: rgba(255, 255, 255, 0.1);
-  border: none; */
-}
-
-.section input[id=highwayPercentage] {
-  width: 4rem;
-}
-
-.section input[id=minPrice], .section input[id=maxPrice] {
-  width: 7rem;
-}
 
 ul, ol {
   list-style-position: inside;
@@ -177,7 +171,6 @@ ul, ol {
 
 #CSS-result-separator {
   display: block;
-  margin: 2rem auto 1rem auto;
   padding: 1rem;
   background-color: black;
   color: white;

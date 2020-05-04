@@ -20,7 +20,7 @@
     <br>
 
     <!-- section 0 -->
-    <div class="section">
+    <div class="section section-first">
       <div class="small-view" onclick="setActiveSection(0)">
         Introducing this tool
       </div>
@@ -34,7 +34,7 @@
     <!-- section 1 -->
     <div class="section">
       <div class="small-view" onclick="setActiveSection(1)">
-        small view: TODO: section 1
+        Highway vs. City: <span id="sv-highway" class="sv-answer">XXX</span> highway | <span id="sv-city" class="sv-answer">XXX</span> city.
       </div>
       <div class="big-view">
         <span class="h3"><span>Highway vs. City</span></span>
@@ -51,7 +51,7 @@
     <!-- section 2 -->
     <div class="section">
       <div class="small-view" onclick="setActiveSection(2)">
-        small view. TODO: section 2
+        Environmental Footprint: You <span id="sv-env-footprint" class="sv-answer">XXX</span>
       </div>
       <div class="big-view">
         <span class="h3"><span>Environmental Footprint</span></span>
@@ -72,7 +72,7 @@
     <!-- section 3 -->
     <div class="section">
       <div class="small-view" onclick="setActiveSection(3)">
-        small view. TODO: section 3
+        Car Size: <span id="sv-car-size" class="sv-answer">XXX</span>
       </div>
       <div class="big-view">
         <span class="h3"><span>Car Size</span></span>
@@ -110,7 +110,7 @@
     <!-- section 4 -->
     <div class="section">
       <div class="small-view" onclick="setActiveSection(4)">
-        small view: TODO section 4
+        Car Wheel-Drive (2 or 4): <span id="sv-wd" class="sv-answer">XXX</span> wheel-drive
       </div>
       <div class="big-view">
         <span class="h4"><span>Car Wheel-Drive</span></span>
@@ -129,7 +129,7 @@
     <!-- section 5 -->
     <div class="section">
       <div class="small-view" onclick="setActiveSection(5)">
-        small view: TODO section 5
+        Car Spending: Between <span id="sv-min-price" class="sv-answer">XXX</span> and <span id="sv-max-price" class="sv-answer">XXX</span>.
       </div>
       <div class="big-view">
         <span class="h3"><span>Car Spending</span></span>
@@ -152,13 +152,10 @@
     </div>
 
     <div class="section" id="graph-section">
-        <h1 class="CSS-section-title">Graphs</h1>
-        <h2 class="CSS-section-subtitle">Pollution to Price Comparison<h2>
-        <img src="img/pollution-to-price-comparison.png" />
-        <h2 class="CSS-section-subtitle">Average Number of Cylinders to Air Pollution Score<h2>
-        <img src="img/average-cylinders-to-air-pollution-score.png" />
-        <h2 class="CSS-section-subtitle">Average Number of Cylinders to Green House Gas Score<h2>
-        <img src="img/average-cylinders-to-ghg-score.png" />
+      <span class="h2"><span>Graphs</span></span>
+      <span class="h3"><span>Pollution to Price Comparison</span></span>
+      <img src="img/pollution-to-price-comparison.png"
+           alt="Graph showing the pollution to price comparison for cars" />
     </div>
 
     <div class="section" id="sample-section">

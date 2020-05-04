@@ -22,6 +22,9 @@ const Selection = {
   priceMin: 0,
   priceMax: 100000,
 }
+const SVMap = {
+  environment: { 1: "do not care", 4: "somewhat care", 7: "care" },
+};
 
 // some setup stuffs
 function onLoaded() {
@@ -30,6 +33,7 @@ function onLoaded() {
   // update the view
   updateView();
   getResults();
+  slowScrollToHeight(0);
 }
 window.addEventListener("load", onLoaded);
 
@@ -68,6 +72,32 @@ function makeSolved(sectionId) {
     const section = document.querySelectorAll(".section")[sectionId];
     const smallView = section.children[0];
     smallView.classList.add("section-small-view-solved");
+    switch (sectionId) {
+      case 1:
+        // Highway vs. City
+        document.querySelector("#sv-highway").innerText = (Selection.percentHighway * 100) + "%";
+        document.querySelector("#sv-city").innerText = ((1 - Selection.percentHighway) * 100) + "%";
+        break;
+      case 2:
+        // Environment Level
+        document.querySelector("#sv-env-footprint").innerText = SVMap.environment[Selection.environmentLevel];
+        break;
+      case 3:
+        // Car size
+        document.querySelector("#sv-car-size").innerText = Selection.carType;
+        break;
+      case 4:
+        // Wheel drive
+        document.querySelector("#sv-wd").innerText = Selection.WD;
+        break;
+      case 5:
+        // Price
+        document.querySelector("#sv-min-price").innerText = "$" + Selection.priceMin;
+        document.querySelector("#sv-max-price").innerText = "$" + Selection.priceMax;
+        break;
+      default:
+        break;
+    }
   }
   Navigator.solvedSections[sectionId] = true;
 }
@@ -79,12 +109,31 @@ function updateView() {
 
   if (Navigator.activeSection < Navigator.maxSolvableSection) {
     expandSection(Navigator.activeSection);
+  } else {
+    // this is now we're displaying results
+    const height = document.querySelector("#CSS-result-separator").offsetTop;
+    slowScrollToHeight(height);
   }
+}
 
-  // this is now we're displaying results
-  if (Navigator.activeSection === Navigator.maxSolvableSection) {
-    // TODO: do something if needed
+function slowScrollToHeight(height) {
+  const delta = 12, timeDelta = 2;
+  const currentHeight = window.scrollY;
+  let scrollF = null;
+  if (currentHeight < height) {
+    scrollF = () => {
+      window.scrollTo(0, Math.min(currentHeight + delta, height));
+      slowScrollToHeight(height);
+    };
+  } else if (currentHeight > height) {
+    scrollF = () => {
+      window.scrollTo(0, Math.max(currentHeight - delta, height));
+      slowScrollToHeight(height);
+    };
+  } else {
+    return;
   }
+  setTimeout(scrollF, timeDelta);
 }
 
 /**
@@ -98,19 +147,32 @@ function collapseSection(sectionId) {
   largeView.style.display = "none";
   const nextButton = section.children[2];
   nextButton.style.display = "none";
+  section.style.minHeight = null;
 }
 
 /**
  * get the small view and large view; then hide and display them accordingly
  */
 function expandSection(sectionId) {
-  const section = document.querySelectorAll(".section")[sectionId];
+  const allSections = document.querySelectorAll(".section")
+  const section = allSections[sectionId];
   const smallView = section.children[0];
   smallView.style.display = "none";
   const largeView = section.children[1];
   largeView.style.display = "block";
   const nextButton = section.children[2];
   nextButton.style.display = "block";
+
+  // set the height of the expanded section such that all the sections
+  // take up all the heights. sum of the sizes of the small views
+  // (because they may have different sizes).
+  const svHeight = Array.from(Array(Navigator.maxSolvableSection).keys())
+                        .filter(k => k !== sectionId)
+                        .map(k => allSections[k].clientHeight)
+                        .reduce((a, b) => a + b);
+  const titleHeight = allSections[0].offsetTop;
+  const desiredHeight = window.innerHeight - (svHeight) - (titleHeight);
+  section.style.minHeight = desiredHeight + "px";
 }
 
 
@@ -214,6 +276,10 @@ function calculateMPG(car){
     count += 1;
   }
   if (carFuels.includes("gasoline")) {
+    mpg += parseInt(car["Fuel City MPG"]) * pctCity + parseInt(car["Fuel Hwy MPG"]) * pctHighway;
+    count += 1;
+  }
+  if (carFuels.includes("hydrogen")) {
     mpg += parseInt(car["Fuel City MPG"]) * pctCity + parseInt(car["Fuel Hwy MPG"]) * pctHighway;
     count += 1;
   }
