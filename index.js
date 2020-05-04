@@ -46,6 +46,10 @@ function setActiveSection(sectionId) {
   if (Navigator.activeSection < sectionId) {
     makeSolved(Navigator.activeSection);
   }
+  // update the previous section if it's solved
+  if (Navigator.solvedSections[Navigator.activeSection]) {
+    updateSectionSmallView(Navigator.activeSection);
+  }
 
   // find the maximum solved section
   const maxSolved = Object.keys(Navigator.solvedSections)
@@ -72,34 +76,38 @@ function makeSolved(sectionId) {
     const section = document.querySelectorAll(".section")[sectionId];
     const smallView = section.children[0];
     smallView.classList.add("section-small-view-solved");
-    switch (sectionId) {
-      case 1:
-        // Highway vs. City
-        document.querySelector("#sv-highway").innerText = (Selection.percentHighway * 100) + "%";
-        document.querySelector("#sv-city").innerText = ((1 - Selection.percentHighway) * 100) + "%";
-        break;
-      case 2:
-        // Environment Level
-        document.querySelector("#sv-env-footprint").innerText = SVMap.environment[Selection.environmentLevel];
-        break;
-      case 3:
-        // Car size
-        document.querySelector("#sv-car-size").innerText = Selection.carType;
-        break;
-      case 4:
-        // Wheel drive
-        document.querySelector("#sv-wd").innerText = Selection.WD;
-        break;
-      case 5:
-        // Price
-        document.querySelector("#sv-min-price").innerText = "$" + Selection.priceMin;
-        document.querySelector("#sv-max-price").innerText = "$" + Selection.priceMax;
-        break;
-      default:
-        break;
-    }
   }
   Navigator.solvedSections[sectionId] = true;
+
+}
+
+function updateSectionSmallView(sectionId) {
+  switch (sectionId) {
+    case 1:
+      // Highway vs. City
+      document.querySelector("#sv-highway").innerText = (Selection.percentHighway * 100) + "%";
+      document.querySelector("#sv-city").innerText = ((1 - Selection.percentHighway) * 100) + "%";
+      break;
+    case 2:
+      // Environment Level
+      document.querySelector("#sv-env-footprint").innerText = SVMap.environment[Selection.environmentLevel];
+      break;
+    case 3:
+      // Car size
+      document.querySelector("#sv-car-size").innerText = Selection.carType;
+      break;
+    case 4:
+      // Wheel drive
+      document.querySelector("#sv-wd").innerText = Selection.WD;
+      break;
+    case 5:
+      // Price
+      document.querySelector("#sv-min-price").innerText = "$" + Selection.priceMin;
+      document.querySelector("#sv-max-price").innerText = "$" + Selection.priceMax;
+      break;
+    default:
+      break;
+  }
 }
 
 function updateView() {
