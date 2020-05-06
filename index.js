@@ -24,6 +24,8 @@ const Selection = {
   priceMin: 0,
   priceMax: 100000,
 }
+
+let topResultsData;
 const SVMap = {
   environment: { 1: "do not care", 4: "somewhat care", 7: "care" },
 };
@@ -247,6 +249,13 @@ function getResults() {
 
   // We can change this based on what we want to show
   const topPicks = 10;
+  topResultsData = filteredResults.slice(0,topPicks).map((el, index) => {
+    el.rank = index + 1;
+    el.url = "http://www.google.com/search?q=" + el["Model"].replace(" ","+");
+    return el;
+  });
+  topResultsLength = topResultsData.length;
+  updateBarGraph();
   let topResults = filteredResults.slice(0,topPicks)
                                   .map(car => car["Model"] + " - " + car["mpg"] + "MPG" + makeCarPrice(car["price"]));
 
@@ -272,7 +281,7 @@ function getResults() {
       onclick="window.open('${url}', '_blank')">${topResults[i]}</span>
     </div>`;
   }
-  document.getElementById("topVehicles").innerHTML = resultingString;
+  //document.getElementById("topVehicles").innerHTML = resultingString;
   displayQuickResults(filteredResults);
 }
 
