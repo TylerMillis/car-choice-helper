@@ -33,6 +33,22 @@ body {
   padding: 0.5rem 0 0 0;
 }
 
+#copyright {
+  background-color: black;
+  color: white;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 900;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+#copyright a:visited,
+#copyright a:hover,
+#copyright a:focus,
+#copyright a {
+  color: white
+}
+
 p {
   display: block;
   padding: 0 10%;
@@ -261,15 +277,6 @@ p {
   padding: 1rem 0;
 }
 
-#side-results #copyright {
-  bottom: 0;
-  display: block;
-  font-size: 0.9rem;
-  font-style: italic;
-  font-weight: 800;
-  margin: 1.5rem auto 1rem auto;
-  position: absolute;
-}
 
 a:link {
   color: black;
