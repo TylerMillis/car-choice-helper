@@ -337,7 +337,7 @@ function updateBarGraph(topResultsData) {
 
     const rankObj = barObjInit.append("span");
     rankObj.attr("class", "ms-rank");
-    rankObj.text(d => `${d.mpg} mpg`);
+    rankObj.text(d => `${d.mpg} MPG`);
 
   }
   container.selectAll("span")
