@@ -125,6 +125,85 @@ p {
 .next-section div:hover, .next-section div:focus { background-color: #0000AA; }
 .next-section div:active { background-color: var(--orange-dark); }
 
+.ms-result {
+  margin-bottom: 1rem;
+  display: block;
+  padding: 0.2rem;
+  text-align: left;
+  font-family: 'Anonymous Pro', monospace;
+  border-bottom: 2px solid rgba(0,0,0,0.3);
+}
+.ms-result * {
+  font-family: 'Anonymous Pro', monospace;
+}
+
+.ms-result .ms-result-init {
+  display: block;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+.ms-result:hover .ms-result-init .ms-model,
+.ms-result:hover .ms-result-init .ms-co2,
+.ms-result:hover .ms-result-init .ms-price,
+.ms-result:focus .ms-result-init .ms-model,
+.ms-result:focus .ms-result-init .ms-co2,
+.ms-result:focus .ms-result-init .ms-price {
+  color: var(--orange-dark);
+}
+
+.ms-result:active .ms-result-init .ms-model,
+.ms-result:active .ms-result-init .ms-co2,
+.ms-result:active .ms-result-init .ms-price {
+  color: var(--orange);
+}
+
+.ms-model, .ms-co2, .ms-price {
+  padding: 0.15rem;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+.ms-co2 {
+  font-style: italic;
+  display: block;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+.ms-model, .ms-price {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.ms-price {
+  border: 1px solid rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.04);
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+.ms-model {
+}
+.ms-bar {
+  display: block;
+  min-height: 1rem;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.ms-bar-init {
+  display: block;
+  min-height: 1rem;
+  position: relative;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  color: rgba(0, 0, 0, 0);
+}
+.ms-bar-init * { font-size: inherit; }
+.ms-rank {
+  position: absolute;
+  right: 0.2rem;
+  font-weight: 900;
+  overflow: visible;
+  color: white;
+}
 
 /* SIDE RESULTS */
 

@@ -14,7 +14,7 @@ const Navigator = {
 };
 
 const CYAN_T020 = "rgba(0, 255, 255, 0.2)";
-const avgCO2 = 385.32302685109846;
+const AVG_CO2 = 385.32302685109846;
 
 // Using this object to store the users' selection
 const Selection = {
@@ -26,7 +26,6 @@ const Selection = {
   priceMax: 100000,
 }
 
-let topResultsData;
 const SVMap = {
   environment: { 1: "do not care", 4: "somewhat care", 7: "care" },
 };
@@ -39,6 +38,8 @@ function onLoaded() {
   updateView();
   getResults();
   slowScrollToHeight(0);
+  window.addEventListener("resize", getResults);
+  window.addEventListener("resize", updateView);
 }
 window.addEventListener("load", onLoaded);
 
@@ -233,57 +234,121 @@ function getResults() {
 
   // filter the wheel drives
   if (Selection.WD !== "either") {
-    filteredResults = filteredResults.filter(car => car["Drive"] === Selection.WD)
+    filteredResults = filteredResults.filter(car => car["Drive"] === Selection.WD);
   }
 
   // get user's mpg and sort by it
   filteredResults.map(car => car["mpg"] = calculateMPG(car));
-  filteredResults.sort(function(a, b) {
-    if (a["mpg"] < b["mpg"]) return 1;
-    if (a["mpg"] > b["mpg"]) return -1;
+  filteredResults.sort(function (a, b) {
+    if (a["mpg"] < b["mpg"]) {
+      return 1;
+    }
+    if (a["mpg"] > b["mpg"]) {
+      return -1;
+    }
     return 0;
   });
 
-  function makeCarPrice(price) {
-    return ` - <span class="CSS-car-price">$${price}</span>`;
+  function round(x) {
+    return Math.round(x * 100) / 100;
   }
 
   // We can change this based on what we want to show
   const topPicks = 10;
-  topResultsData = filteredResults.slice(0,topPicks).map((el, index) => {
-    el.rank = index + 1;
-    el.url = "http://www.google.com/search?q=" + el["Model"].replace(" ","+");
-    return el;
+  const topResultsData = filteredResults.slice(0, topPicks).map((el, index) => {
+    return {
+      co2_delta: round(((el["Comb CO2"] - AVG_CO2)/AVG_CO2) * 100),
+      mpg: el["mpg"],
+      model: el["Model"],
+      rank: index + 1,
+      price: el["price"],
+    };
   });
-  topResultsLength = topResultsData.length;
-  updateBarGraph();
-  let topResults = filteredResults.slice(0,topPicks)
-                                  .map(car => car["Model"] + " - " + car["mpg"] + "MPG" + makeCarPrice(car["price"]));
-
-  let resultingString = "";
-  let maxVal = 0;
-  let minVal = 1000;
-  for (let i = 0; i < Math.min(topPicks, filteredResults.length); i++){
-    let mpg = filteredResults[i]["mpg"];
-    if (mpg > maxVal){
-      maxVal = mpg;
-    }
-    if (mpg < minVal){
-      minVal = mpg;
-    }
-  }
-  const sectionHeight = 4 * maxVal;
-  for(let i = 0; i < topResults.length; i++){
-    const blockHeight = (maxVal - filteredResults[i]["mpg"]) * 4;
-    let url = "http://www.google.com/search?q=" + filteredResults[i]["Model"].replace(" ","+");
-    resultingString += `<div class='carResult' style='height: ${sectionHeight}px'>
-      <span class='carInfo' 
-      style='top: ${blockHeight}px'
-      onclick="window.open('${url}', '_blank')">${topResults[i]}</span>
-    </div>`;
-  }
-  //document.getElementById("topVehicles").innerHTML = resultingString;
+  updateBarGraph(topResultsData);
   displayQuickResults(filteredResults);
+}
+
+function updateBarGraph(topResultsData) {
+  console.log(topResultsData);
+
+  // first remove all the previous ones
+  const container = d3.select("div#topVehicles");
+  container.selectAll("span").remove();
+
+  if (topResultsData.length === 0) {
+    displayNoResultsOnContainer(container, "ms");
+  }
+
+  const minMpg = topResultsData.map(d => d.mpg).reduce((a, b) => Math.min(a,b));
+  const maxMpg = topResultsData.map(d => d.mpg).reduce((a, b) => Math.max(a,b));
+  const mpgRange = (maxMpg - minMpg);
+  const lowPct = 10;
+  const highPct = 95 - lowPct;
+
+  function co2Qualifier(value) {
+    console.log(value);
+    if (value < 0) {
+      return "<span style='color: rgb(30, 170, 50); font-weight: 900;'>less</span>";
+    }
+    if (value === 0) {
+      console.error("NOT SUPPOSED TO HAPPEN. co2Qualifier should not be 0");
+    }
+    return "<span style='color: rgb(170, 50, 30); font-weight: 900;'>more</span>";
+  }
+
+  function mpgBarColor(d) {
+    const projectedValue = (lowPct + (((d.mpg - minMpg)/mpgRange) * (100-lowPct)))/100;
+    const lowestBlue = 25;
+    const highestBlue = 175;
+    const blue = (projectedValue * (highestBlue - lowestBlue)) + lowestBlue;
+    return `rgb(65, 40, ${blue})`;
+  }
+
+  function enterFxn(enter) {
+    const carObj = enter.append("span");
+    carObj.attr("class", "ms-result");
+
+    const carObjInit = carObj.append("span");
+    carObjInit.attr("class", "ms-result-init");
+
+    const modelObj = carObjInit.append("span");
+    modelObj.attr("class", "ms-model");
+    modelObj.text(d => `${d.model}`);
+
+    const priceObj = carObjInit.append("span");
+    priceObj.attr("class", "ms-price");
+    priceObj.text(d => `$${d.price}`);
+
+    const co2Obj = carObjInit.append("span");
+    co2Obj.attr("class", "ms-co2");
+    co2Obj.html(d => `Emits ${Math.abs(d.co2_delta)}% ${co2Qualifier(d.co2_delta)} CO2 than the average car`);
+
+
+    carObjInit.on("click", (d) => window.open(googleLink(d["Model"]), "_blank"));
+
+
+    const barObj = carObj.append("span");
+    barObj.attr("class", "ms-bar");
+    const barObjInit = barObj.append("span");
+    barObjInit.attr("class", "ms-bar-init");
+    barObjInit.style("width", d => (lowPct + (((d.mpg - minMpg)/mpgRange) * highPct)) + "%");
+    barObjInit.style("background-color", d => mpgBarColor(d));
+    barObjInit.text("-");
+
+    const rankObj = barObjInit.append("span");
+    rankObj.attr("class", "ms-rank");
+    rankObj.text(d => `${d.mpg} mpg`);
+
+  }
+  container.selectAll("span")
+           .data(topResultsData)
+           .join(
+             enterFxn,
+             update => update,
+             exit => exit.remove(),
+           );
+  return;
+  // %=====================================================================
 }
 
 function calculateMPG(car){
@@ -315,9 +380,7 @@ function displayQuickResults(results) {
   container.selectAll("span").remove();
 
   if (results.length === 0) {
-    const header = container.selectAll("span").data([1]).join("span");
-    header.attr("class", "sr-no-result");
-    header.text("No results :(");
+    displayNoResultsOnContainer(container, "sr");
     return;
   }
 
@@ -342,7 +405,12 @@ function displayQuickResults(results) {
              update => update,
              exit => exit.remove(),
            );
-  console.log(results);
+}
+
+function displayNoResultsOnContainer(container, pre_class) {
+  const header = container.selectAll("span").data([1]).join("span");
+  header.attr("class", `${pre_class}-no-result`);
+  header.text("No results :(");
 }
 
 function googleLink(s) {
