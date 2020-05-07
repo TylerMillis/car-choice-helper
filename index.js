@@ -14,6 +14,7 @@ const Navigator = {
 };
 
 const CYAN_T020 = "rgba(0, 255, 255, 0.2)";
+const avgCO2 = 385.32302685109846;
 
 // Using this object to store the users' selection
 const Selection = {

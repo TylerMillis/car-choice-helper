@@ -322,7 +322,9 @@
                 .style('font-size', 'small')
                 .style('font-weight', 'bold')
                 //.wrap(car => "<a xlink:href \"" + car.url + "\"></a>")
-                .text(car => car["Model"] + " - " + car["mpg"] + "MPG" + " - $" + car["price"])
+                .text(car => car["Model"] + " - " + car["mpg"] + "MPG" + " - Emits " + (car["Comb CO2"] > avgCO2
+                        ? ((car["Comb CO2"] / avgCO2) * 100).toString().slice(0,2) + "% more CO2 than the average vehicle" :
+                        (((avgCO2 -car["Comb CO2"]) / avgCO2) * 100).toString().slice(0,2) + "% less CO2 than the average vehicle") + " - $" + car["price"]);
 
             console.log(container);
             console.log(containerParent);
