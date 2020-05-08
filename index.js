@@ -324,7 +324,7 @@ function updateBarGraph(topResultsData) {
     co2Obj.html(d => `Emits ${Math.abs(d.co2_delta)}% ${co2Qualifier(d.co2_delta)} CO2 than the average car`);
 
 
-    carObjInit.on("click", (d) => window.open(googleLink(d["Model"]), "_blank"));
+    carObjInit.on("click", (d) => window.open(googleLink(d["model"]), "_blank"));
 
 
     const barObj = carObj.append("span");
